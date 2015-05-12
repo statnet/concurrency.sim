@@ -1,0 +1,19 @@
+Package: concurrency.sim
+Type: Package
+Title: Microsimulation Model for Concurrency on HIV-1 Transmission Dynamics
+Version: 0.1
+Date: 2015-04-15
+Authors@R: c( person("Samuel", "Jenness",
+    role=c("cre","aut"), email="sjenness@uw.edu"),
+    person("Steven", "Goodreau",
+    role=c("aut"), email="goodreau@uw.edu"))
+Maintainer: Samuel Jenness <sjenness@uw.edu>
+Description: Microsimulation model for simulating the effects of sexual partnership concurrency on the HIV-1 transmission dynamics in a heterosexual epidemic context.
+License: GPL-3
+Depends:
+    R (>= 3.1.0)
+Suggests:
+    knitr,
+    testthat
+VignetteBuilder: knitr
+LazyData: true
