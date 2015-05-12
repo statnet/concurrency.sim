@@ -15,7 +15,7 @@
 simulated data.}
 
 \item{alpha}{transparency level for simulation lines, where 0 = transparent
-and 1 = opaque (see \code{\link{transco}}).}
+and 1 = opaque (see \code{transco} in the \code{EpiModel} package).}
 
 \item{lwd}{line width for simulation lines.}
 
@@ -33,5 +33,4 @@ disease prevalence. Future releases will standardize the plotting options to
 those available with stochastic epidemic models, similar to those in
 \code{\link{plot.icm}}.
 }
-\keyword{internal}
 
