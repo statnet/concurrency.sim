@@ -12,6 +12,8 @@ Description: Microsimulation model for simulating the effects of sexual partners
 License: GPL-3
 Depends:
     R (>= 3.1.0)
+Imports:
+    wesanderson
 Suggests:
     knitr,
     testthat

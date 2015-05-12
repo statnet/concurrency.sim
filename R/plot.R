@@ -34,7 +34,7 @@ plot.conc_microsim <- function(x,
 
   nsims <- length(x)
   nsteps <- nrow(x[[1]])
-  pal <- transco(brewer.pal(3, "Set1"), alpha)
+  pal <- transco(wesanderson::wes_palette("Zissou", 5), alpha)[c(5, 1)]
 
   if (missing(ylim)) ylim <- 0:1
   if (missing(xlim)) xlim <- c(0, nsteps)

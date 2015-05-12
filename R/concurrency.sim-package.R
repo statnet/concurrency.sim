@@ -16,6 +16,7 @@
 #' @name concurrency.sim-package
 #' @docType package
 #' @keywords package
+#' @import wesanderson
 #' @importFrom EpiModel transco
 #'
 NULL
