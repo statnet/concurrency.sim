@@ -66,7 +66,6 @@
 #' Hollingsworth TD, Anderson RM, Fraser C. HIV-1 transmission, by stage of
 #' infection. Journal of Infectious Diseases. 2008; 198(5): 687-693.
 #'
-#' @keywords model internal
 #' @export
 #'
 #' @examples
@@ -155,7 +154,7 @@ conc_microsim <- function(s.num.f,
 
 
   out <- list()
-  for (sim in 1:nsims){
+  for (sim in 1:nsims) {
     ptm <- proc.time()
 
     # Basic calculations ------------------------------------------------------
@@ -301,7 +300,7 @@ conc_microsim <- function(s.num.f,
       edgesMaleDeath <- which(edgelistMale %in% idsDeathAidsMale)
       # Combine and remove from edgelists
       edgesBothDeath <- c(edgesFemlDeath, edgesMaleDeath)
-      if (length(edgesBothDeath > 0)){
+      if (length(edgesBothDeath > 0)) {
         edgelistFeml <- edgelistFeml[-edgesBothDeath]
         edgelistMale <- edgelistMale[-edgesBothDeath]
       }
@@ -379,16 +378,16 @@ conc_microsim <- function(s.num.f,
     }
     # Progress tracker
     stepTime <- (proc.time()[3] - ptm[3])
-    doneTime <- (proc.time()[3] - ptm[3]) * (nsims-sim)
+    doneTime <- (proc.time()[3] - ptm[3]) * (nsims - sim)
     if (verbose == TRUE) {
       if (doneTime/60 < 60) {
         cat("SIM = ", sim, "/", nsims,
             " | SIM Time = ", round(stepTime/60, 1), " Min",
-            " | SIM Done = ", round(doneTime/60), " Min", "\n", sep="")
+            " | SIM Done = ", round(doneTime/60), " Min", "\n", sep = "")
       } else {
         cat("SIM = ", sim, "/", nsims,
             " | SIM Time = ", round(stepTime/60, 1), " Min",
-            " | SIM Done = ", round(doneTime/60/60, 1), " Hrs", "\n", sep="")
+            " | SIM Done = ", round(doneTime/60/60, 1), " Hrs", "\n", sep = "")
       }
     }
 
