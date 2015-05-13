@@ -2,5 +2,5 @@
 
 S3method(plot,conc_microsim)
 export(conc_microsim)
+export(transco)
 import(wesanderson)
-importFrom(EpiModel,transco)
