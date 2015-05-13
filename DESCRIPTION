@@ -14,4 +14,6 @@ Depends:
     R (>= 3.1.0)
 Imports:
     wesanderson
+Suggests:
+    shiny
 LazyData: true

@@ -14,8 +14,5 @@ Runs a web browser-based GUI of the concurrency microsimulation.
 concweb()
 }
 }
-\seealso{
-\code{\link{dcm}}, \code{\link{icm}}
-}
 \keyword{GUI}
 

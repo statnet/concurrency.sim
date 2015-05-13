@@ -4,9 +4,6 @@
 #'
 #' @description Runs a web browser-based GUI of the concurrency microsimulation.
 #'
-#'
-#' @seealso \code{\link{dcm}}, \code{\link{icm}}
-#'
 #' @keywords GUI
 #' @export
 #'
