@@ -393,6 +393,7 @@ conc_microsim <- function(s.num.f,
     }
 
     prevBoth <- matrix(c(femlPrev, malePrev), ncol = 2)
+    colnames(prevBoth) <- c("femlPrev", "malePrev")
     out[[sim]] <- prevBoth
 
     if (is.function(updateProgress)) {
