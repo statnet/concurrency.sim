@@ -20,6 +20,14 @@ shinyServer(function(input, output) {
 
   sim <- reactive({
     input$runMod
+
+    progress <- shiny::Progress$new()
+    progress$set(message = "Computing", value = 0)
+    on.exit(progress$close())
+    updateProgress <- function(detail = NULL) {
+      progress$inc(amount = 1/input$sims, detail = detail)
+    }
+
     isolate(
       conc_microsim(
            s.num.f = 1000,
@@ -32,7 +40,8 @@ shinyServer(function(input, output) {
            part.duration = input$dur,
            nsteps = 2000,
            nsims = input$sims,
-           verbose = FALSE))
+           verbose = FALSE,
+           updateProgress = updateProgress))
   })
 
   output$concplot <- renderPlot({
