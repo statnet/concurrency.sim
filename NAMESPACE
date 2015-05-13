@@ -2,5 +2,6 @@
 
 S3method(plot,conc_microsim)
 export(conc_microsim)
+export(concweb)
 export(transco)
 import(wesanderson)
