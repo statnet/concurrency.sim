@@ -147,10 +147,9 @@ plot(both.conc, alpha=0.5, ylim=c(0, 0.5), main="Both Concurrency")
 }
 }
 \references{
-A web-based implementation of this model is available at
-\url{http://statnet.org/apps/Conc}. The background and details of this model
-are explained in a full tutorial on concurrency at
-\url{http://statnet.org/trac/wiki/ConcurrencyIndex}.
+The background and details of this model are explained in a full tutorial
+on concurrency at
+\url{https://statnet.csde.washington.edu/trac/wiki/ConcurrencyIndex}.
 
 Hollingsworth TD, Anderson RM, Fraser C. HIV-1 transmission, by stage of
 infection. Journal of Infectious Diseases. 2008; 198(5): 687-693.

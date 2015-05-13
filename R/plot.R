@@ -17,9 +17,7 @@
 #' @details
 #' This function plots the disease prevalence from an \code{conc_microsim}
 #' model. The function is currently limited to individual simulation lines of
-#' disease prevalence. Future releases will standardize the plotting options to
-#' those available with stochastic epidemic models, similar to those in
-#' \code{\link{plot.icm}}.
+#' disease prevalence.
 #'
 #' @method plot conc_microsim
 #' @export

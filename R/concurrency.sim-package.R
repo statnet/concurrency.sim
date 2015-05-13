@@ -2,16 +2,18 @@
 #' concurrency.sim Package
 #'
 #' \tabular{ll}{
-#'    Package: \tab EpiModel.hiv\cr
+#'    Package: \tab concurrency.sim\cr
 #'    Type: \tab Package\cr
 #'    Version: \tab 0.1\cr
-#'    Date: \tab 2015-04-15\cr
+#'    Date: \tab 2015-05-12\cr
 #'    License: \tab GPL (>= 2)\cr
 #'    LazyLoad: \tab yes\cr
 #' }
 #'
 #' @details
-#' EpiModel extensions for modeling HIV infection among heterosexual populations.
+#' Microsimulation model for simulating the effects of sexual partnership
+#' concurrency on the HIV-1 transmission dynamics in a heterosexual epidemic
+#' context.
 #'
 #' @name concurrency.sim-package
 #' @docType package
