@@ -33,8 +33,12 @@ plot.conc_microsim <- function(x,
   nsteps <- nrow(x[[1]])
   pal <- transco(wesanderson::wes_palette("Zissou", 5), alpha)[c(5, 1)]
 
-  if (missing(ylim)) ylim <- 0:1
-  if (missing(xlim)) xlim <- c(0, nsteps)
+  if (missing(ylim)) {
+    ylim <- c(0, max(sapply(x, max)) * 1.2)
+  }
+  if (missing(xlim)) {
+    xlim <- c(0, nsteps)
+  }
 
   plot(1, 1, type = "n", xlim = xlim, ylim = ylim, bty = "n",
        xlab = "Time (months)", ylab = "Infected", ...)
