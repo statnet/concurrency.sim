@@ -15,7 +15,17 @@ shinyUI(fluidPage(
                "or conditions."),
       actionButton(inputId = "runMod", "Run Model"),
 
-      h4("Epidemic Parameters"),
+      h4("Initial Conditions", style = "margin-top: 25px"),
+      numericInput(inputId = "s.num.m", label = "n Male Susceptible",
+                   value = 1000, min = 1),
+      numericInput(inputId = "s.num.f", label = "n Female Susceptible",
+                   value = 1000, min = 1),
+      numericInput(inputId = "i.num.m", label = "n Male Infected",
+                   value = 50, min = 1),
+      numericInput(inputId = "i.num.f", label = "n Female Infected",
+                   value = 50, min = 1),
+
+      h4("Epidemic Parameters", style = "margin-top: 25px"),
       sliderInput(inputId = "md", label = "Mean Degree",
                   min = 0.5, max = 1.5, value = 0.8, step = 0.05),
       sliderInput(inputId = "dur", label = "Mean Partnership Duration",
@@ -25,21 +35,42 @@ shinyUI(fluidPage(
                               "Female Only Concurrency",
                               "Male Only Concurrency",
                               "Both Sexes Concurrency")),
-      sliderInput(inputId = "sims", label = "Number of Simulations",
-                  value = 10, min = 1, max = 25, step = 1)
+
+      h4("Control Settings", style = "margin-top: 25px"),
+      sliderInput(inputId = "sims", label = "Simulations",
+                  value = 10, min = 1, max = 25, step = 1),
+      numericInput(inputId = "nsteps", label = "Time Steps",
+                   value = 2000, min = 100)
     ), # end sidebarPanel
 
     mainPanel(
       tabsetPanel(
         tabPanel("Plot",
          h4("Simulation Results"),
-         plotOutput(outputId = "concplot"),
+         plotOutput(outputId = "concplot", height = "550px"),
+         br(),
          wellPanel(
            h4("Graphical Parameters"),
-           checkboxInput(inputId = "simlines", label = "Simulation Lines",
-                         value = TRUE),
-           sliderInput(inputId = "alpha", label = "Line Transparency",
-                       value = 0.3, min = 0.1, max = 1, step = 0.05)
+           fluidRow(
+             column(3, checkboxInput(inputId = "sim.lines", label = "Sim Lines",
+                                     value = FALSE)),
+             column(3, checkboxInput(inputId = "mean.line", label = "Mean Line",
+                                     value = TRUE)),
+             column(3, checkboxInput(inputId = "mean.smooth", label = "Smooth Mean",
+                                     value = TRUE))
+           ),
+           fluidRow(
+             column(6, sliderInput(inputId = "qnts", label = "Quantile Range",
+                                   value = 0.5, min = 0, max = 1, step = 0.05)),
+             column(6, sliderInput(inputId = "sim.alpha", label = "Sim Line Transparency",
+                                   value = 0.3, min = 0.05, max = 1, step = 0.05))
+           ),
+           fluidRow(
+             column(6, sliderInput(inputId = "mean.lwd", label = "Mean Width",
+                                   value = 3, min = 1, max = 5, step = 1)),
+             column(6, sliderInput(inputId = "qnt.alpha", label = "Quantile Transparency",
+                                   value = 0.3, min = 0.05, max = 1, step = 0.05))
+           )
          )),
         tabPanel("About",
          p("This application simulates a stochastic epidemic model of HIV-1 infection to
@@ -49,7 +80,7 @@ shinyUI(fluidPage(
              href = "https://statnet.csde.washington.edu/trac/wiki/ConcurrencyIndex"),
            " associated with this web application. This model is also built into the",
            a("EpiModel", href = "http://cran.r-project.org/web/packages/EpiModel/index.html"),
-           " software available for the R statistical computing platform."),
+           " software available for the R statistical computing platform.", style = "margin-top: 25px"),
          p("HIV infection is simulated based on a four-stage disease progression model
            in which persons transition from acute to latent to pre-AIDS to AIDS stages.
            These transitions occur at deterministic intervals based on estimates of the

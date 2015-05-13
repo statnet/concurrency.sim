@@ -30,15 +30,15 @@ shinyServer(function(input, output) {
 
     isolate(
       conc_microsim(
-           s.num.f = 1000,
-           i.num.f = 50,
-           s.num.m = 1000,
-           i.num.m = 50,
+           s.num.f = input$s.num.f,
+           i.num.f = input$i.num.f,
+           s.num.m = input$s.num.m,
+           i.num.m = input$i.num.m,
            monog.f = monogF(),
            monog.m = monogM(),
            meandeg = input$md,
            part.duration = input$dur,
-           nsteps = 2000,
+           nsteps = input$nsteps,
            nsims = input$sims,
            verbose = FALSE,
            updateProgress = updateProgress))
@@ -46,7 +46,14 @@ shinyServer(function(input, output) {
 
   output$concplot <- renderPlot({
     par(mar = c(3.5, 3.5, 1.2, 1), mgp = c(2.1, 1, 0))
-    plot(sim(), alpha = input$alpha)
+    plot(sim(),
+         sim.lines = input$sim.lines,
+         sim.alpha = input$sim.alpha,
+         mean.line = input$mean.line,
+         mean.smooth = input$mean.smooth,
+         mean.lwd = input$mean.lwd,
+         qnts = input$qnts,
+         qnt.alpha = input$qnt.alpha)
   })
 
 
