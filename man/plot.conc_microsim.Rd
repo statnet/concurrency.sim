@@ -4,23 +4,35 @@
 \alias{plot.conc_microsim}
 \title{Plot Values from a Concurrency Microsimulation Model}
 \usage{
-\method{plot}{conc_microsim}(x, xlim, ylim, alpha = 1, lwd = 1, ...)
+\method{plot}{conc_microsim}(x, sim.lines = FALSE, sim.alpha = 0.5,
+  mean.line = TRUE, mean.smooth = TRUE, mean.lwd = 3, qnts = 0.5,
+  qnt.alpha = 0.3, xlim, ylim, ...)
 }
 \arguments{
-\item{x}{an object of class \code{conc_microsim}.}
+\item{x}{Object of class \code{conc_microsim}.}
+
+\item{sim.lines}{If \code{TRUE}, plot individual simulation lines.}
+
+\item{sim.alpha}{Transparency level for simulation lines, where 0 = transparent
+and 1 = opaque (see \code{transco} in the \code{EpiModel} package).}
+
+\item{mean.line}{If \code{TRUE}, plot the row means of the simulation lines.}
+
+\item{mean.smooth}{If \code{TRUE}, smooth the mean line.}
+
+\item{mean.lwd}{Line width for mean line.}
+
+\item{qnts}{If \code{TRUE}, plot quantile polygon for specified range.}
+
+\item{qnt.alpha}{Transparency level for quantile band, similiarly specified to
+\code{sim.alpha}.}
 
 \item{xlim}{x-axis scale limits for plot, with default based on model time steps.}
 
 \item{ylim}{y-axis scale limits for plot, with default based on range of
 simulated data.}
 
-\item{alpha}{transparency level for simulation lines, where 0 = transparent
-and 1 = opaque (see \code{transco} in the \code{EpiModel} package).}
-
-\item{lwd}{line width for simulation lines.}
-
-\item{...}{additional arguments to pass to main plot window (see
-       \code{\link{plot.default}}).}
+\item{...}{Additional arguments (not used)}
 }
 \description{
 Plots values from an concurrency microsimulation
