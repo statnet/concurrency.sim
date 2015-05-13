@@ -6,7 +6,7 @@
 \usage{
 conc_microsim(s.num.f, i.num.f, s.num.m, i.num.m, monog.f = TRUE,
   monog.m = TRUE, meandeg, part.duration, nsteps, nsims = 1,
-  verbose = TRUE)
+  verbose = TRUE, updateProgress = NULL)
 }
 \arguments{
 \item{s.num.f}{Number of initial susceptible females in the population.}
@@ -34,6 +34,8 @@ positive integer.}
 \item{nsims}{Number of simulations to run.}
 
 \item{verbose}{If \code{TRUE}, print model progress to the console.}
+
+\item{updateProgress}{Progress function used by Shiny application.}
 }
 \description{
 Simulates an HIV-1 epidemic in a population of men and women

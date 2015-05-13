@@ -21,6 +21,7 @@
 #'        positive integer.
 #' @param nsims Number of simulations to run.
 #' @param verbose If \code{TRUE}, print model progress to the console.
+#' @param updateProgress Progress function used by Shiny application.
 #'
 #' @details
 #' This function runs a microsimulation model of HIV-1 transmission in a purely
@@ -143,7 +144,8 @@ conc_microsim <- function(s.num.f,
                           part.duration,
                           nsteps,
                           nsims = 1,
-                          verbose = TRUE) {
+                          verbose = TRUE,
+                          updateProgress = NULL) {
 
 
   # Probability of transmission per month for active relationship
@@ -392,6 +394,11 @@ conc_microsim <- function(s.num.f,
 
     prevBoth <- matrix(c(femlPrev, malePrev), ncol = 2)
     out[[sim]] <- prevBoth
+
+    if (is.function(updateProgress)) {
+      text <- paste0("Simulation ", sim, "/", nsims, " Complete")
+      updateProgress(detail = text)
+    }
 
   } # end sim loop
 
