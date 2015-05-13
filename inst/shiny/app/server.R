@@ -34,6 +34,7 @@ shinyServer(function(input, output) {
   })
 
   output$concplot <- renderPlot({
+    par(mar = c(3.5, 3.5, 1.2, 1), mgp = c(2.1, 1, 0))
     plot(sim(), alpha = input$alpha)
   })
 
