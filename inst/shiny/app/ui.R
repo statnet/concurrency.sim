@@ -10,6 +10,11 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
 
+      h3("Instructions", style = "margin-top: 0px"),
+      helpText("Click Run Model after changing model parameters",
+               "or conditions."),
+      actionButton(inputId = "runMod", "Run Model"),
+
       h4("Epidemic Parameters"),
       sliderInput(inputId = "md", label = "Mean Degree",
                   min = 0.5, max = 1.5, value = 0.8, step = 0.05),
@@ -20,21 +25,22 @@ shinyUI(fluidPage(
                               "Female Only Concurrency",
                               "Male Only Concurrency",
                               "Both Sexes Concurrency")),
-
-      h4("Graphical Parameters"),
       sliderInput(inputId = "sims", label = "Number of Simulations",
-                  value = 10, min = 1, max = 25, step = 1),
-      checkboxInput(inputId = "simlines", label = "Simulation Lines",
-                    value = TRUE),
-      sliderInput(inputId = "alpha", label = "Line Transparency",
-                  value = 0.3, min = 0.1, max = 1, step = 0.05)
+                  value = 10, min = 1, max = 25, step = 1)
     ), # end sidebarPanel
 
     mainPanel(
       tabsetPanel(
         tabPanel("Plot",
          h4("Simulation Results"),
-         plotOutput(outputId = "concplot")),
+         plotOutput(outputId = "concplot"),
+         wellPanel(
+           h4("Graphical Parameters"),
+           checkboxInput(inputId = "simlines", label = "Simulation Lines",
+                         value = TRUE),
+           sliderInput(inputId = "alpha", label = "Line Transparency",
+                       value = 0.3, min = 0.1, max = 1, step = 0.05)
+         )),
         tabPanel("About",
          p("This application simulates a stochastic epidemic model of HIV-1 infection to
          illustrate the impact of sexual partnership concurrency on transmission dynamics.

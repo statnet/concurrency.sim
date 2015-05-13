@@ -19,18 +19,20 @@ shinyServer(function(input, output) {
   })
 
   sim <- reactive({
-    conc_microsim(
-         s.num.f = 1000,
-         i.num.f = 50,
-         s.num.m = 1000,
-         i.num.m = 50,
-         monog.f = monogF(),
-         monog.m = monogM(),
-         meandeg = input$md,
-         part.duration = input$dur,
-         nsteps = 2000,
-         nsims = input$sims,
-         verbose = FALSE)
+    input$runMod
+    isolate(
+      conc_microsim(
+           s.num.f = 1000,
+           i.num.f = 50,
+           s.num.m = 1000,
+           i.num.m = 50,
+           monog.f = monogF(),
+           monog.m = monogM(),
+           meandeg = input$md,
+           part.duration = input$dur,
+           nsteps = 2000,
+           nsims = input$sims,
+           verbose = FALSE))
   })
 
   output$concplot <- renderPlot({
