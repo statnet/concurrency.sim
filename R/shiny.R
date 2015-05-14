@@ -1,5 +1,4 @@
 
-
 #' @title Concurrency Simulation Shiny App
 #'
 #' @description Runs a web browser-based GUI of the concurrency microsimulation.

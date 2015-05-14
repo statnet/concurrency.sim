@@ -11,9 +11,8 @@ Maintainer: Samuel Jenness <sjenness@uw.edu>
 Description: Microsimulation model for simulating the effects of sexual partnership concurrency on the HIV-1 transmission dynamics in a heterosexual epidemic context.
 License: GPL-3
 Depends:
-    R (>= 3.1.0)
+    R (>= 3.1.0),
+    shiny
 Imports:
     wesanderson
-Suggests:
-    shiny
 LazyData: true
