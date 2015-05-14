@@ -18,6 +18,14 @@ shinyServer(function(input, output) {
            "Both Sexes Concurrency" = FALSE)
   })
 
+  output$mdControl <- renderUI({
+    input$runMod
+    concVal <- isolate(input$conc)
+    mdConc <- ifelse(concVal == "No Concurrency", 1, 1.5)
+    sliderInput(inputId = "md", label = "Mean Degree",
+                min = 0.5, max = mdConc, value = 0.8, step = 0.05)
+  })
+
   sim <- reactive({
     input$runMod
 
