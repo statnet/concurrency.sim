@@ -26,7 +26,8 @@ shinyUI(fluidPage(
                    value = 50, min = 1),
 
       h4("Epidemic Parameters", style = "margin-top: 25px"),
-      uiOutput("mdControl"),
+      sliderInput(inputId = "md", label = "Mean Degree",
+                  min = 0.5, max = 1, value = 0.8, step = 0.05),
       sliderInput(inputId = "dur", label = "Mean Partnership Duration",
                   min = 1, max = 50, value = 10, step = 1),
       selectInput(inputId = "conc", label = "Concurrency Rule",
