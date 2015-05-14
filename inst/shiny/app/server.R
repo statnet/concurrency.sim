@@ -1,7 +1,7 @@
 
 library(concurrency.sim)
 
-shinyServer(function(input, output) {
+shinyServer(function(input, output, session) {
 
   monogM <- reactive({
     switch(input$conc,
@@ -16,6 +16,12 @@ shinyServer(function(input, output) {
            "Female Only Concurrency" = FALSE,
            "Male Only Concurrency" = TRUE,
            "Both Sexes Concurrency" = FALSE)
+  })
+
+  observeEvent(input$conc, {
+    mdConc <- ifelse(input$conc == "No Concurrency", 1, 1.5)
+    updateSliderInput(session, inputId = "md", label = "Mean Degree",
+                      min = 0.5, max = mdConc, value = 0.8, step = 0.05)
   })
 
   sim <- reactive({
