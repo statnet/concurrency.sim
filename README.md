@@ -10,3 +10,6 @@ This software is currently hosted on Github only. It can be installed using the 
 if (!require("devtools")) install.packages("devtools")
 devtools::install_github("statnet/concurrency.sim")
 ```
+
+### Shiny Application
+The Shiny app within this software package can also be run via a web-browser interface at: https://statnet.shinyapps.io/concurrency/
