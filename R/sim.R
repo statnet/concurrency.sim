@@ -69,7 +69,6 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' # No concurrency model
 #' no.conc <- conc_microsim(
 #'    s.num.f = 1000,
@@ -81,8 +80,7 @@
 #'    meandeg = 0.8,
 #'    part.duration = 10,
 #'    nsteps = 2000,
-#'    nsims = 10,
-#'    verbose = TRUE)
+#'    nsims = 10)
 #'
 #' # Male concurrency only model
 #' male.conc <- conc_microsim(
@@ -95,8 +93,7 @@
 #'    meandeg = 0.8,
 #'    part.duration = 10,
 #'    nsteps = 2000,
-#'    nsims = 10,
-#'    verbose = TRUE)
+#'    nsims = 10)
 #'
 #' # Female concurrency only model
 #' feml.conc <- conc_microsim(
@@ -109,8 +106,7 @@
 #'    meandeg = 0.8,
 #'    part.duration = 10,
 #'    nsteps = 2000,
-#'    nsims = 10,
-#'    verbose = TRUE)
+#'    nsims = 10)
 #'
 #' # Both sexes concurrency model
 #' both.conc <- conc_microsim(
@@ -123,16 +119,14 @@
 #'    meandeg = 0.8,
 #'    part.duration = 10,
 #'    nsteps = 2000,
-#'    nsims = 10,
-#'    verbose = TRUE)
+#'    nsims = 10)
 #'
 #' # Plot the results
 #' par(mfrow=c(2,2), mar=c(3,3,3,1), mgp=c(2,1,0))
-#' plot(no.conc, alpha=0.5, ylim=c(0, 0.5), main="No Concurrency")
-#' plot(male.conc, alpha=0.5, ylim=c(0, 0.5), main="Male Concurrency")
-#' plot(feml.conc, alpha=0.5, ylim=c(0, 0.5), main="Female Concurrency")
-#' plot(both.conc, alpha=0.5, ylim=c(0, 0.5), main="Both Concurrency")
-#'}
+#' plot(no.conc, qnt.alpha=0.5, main="No Concurrency")
+#' plot(male.conc, qnt.alpha=0.5, main="Male Concurrency")
+#' plot(feml.conc, qnt.alpha=0.5, main="Female Concurrency")
+#' plot(both.conc, qnt.alpha=0.5, main="Both Concurrency")
 #'
 conc_microsim <- function(s.num.f,
                           i.num.f,
