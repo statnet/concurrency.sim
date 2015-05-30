@@ -14,6 +14,7 @@
 #' @param qnts If \code{TRUE}, plot quantile polygon for specified range.
 #' @param qnt.alpha Transparency level for quantile band, similiarly specified to
 #'        \code{sim.alpha}.
+#' @param qnts.smooth If \code{TRUE}, smooth the quantile band.
 #' @param xlim x-axis scale limits for plot, with default based on model time steps.
 #' @param ylim y-axis scale limits for plot, with default based on range of
 #'        simulated data.
@@ -34,6 +35,7 @@ plot.conc_microsim <- function(x,
                                mean.lwd = 3,
                                qnts = 0.5,
                                qnt.alpha = 0.3,
+                               qnts.smooth = TRUE,
                                xlim,
                                ylim,
                                ...) {
@@ -55,7 +57,7 @@ plot.conc_microsim <- function(x,
        xlab = "Time (months)", ylab = "Infected")
 
   if (qnts > 0) {
-    draw_qnts(x, qnts, qnt.pal)
+    draw_qnts(x, qnts, qnt.pal, qnts.smooth)
   }
   if (sim.lines == TRUE) {
     for (i in 1:nsims) {
@@ -94,7 +96,7 @@ draw_means <- function(x, mean.smooth, mean.lwd, pal) {
 }
 
 
-draw_qnts <- function(x, qnts, qnt.pal) {
+draw_qnts <- function(x, qnts, qnt.pal, qnts.smooth) {
 
   df <- do.call("cbind", x)
   dfF <- df[, which(colnames(df) == "femlPrev")]
@@ -105,11 +107,21 @@ draw_qnts <- function(x, qnts, qnt.pal) {
   qntM <- apply(dfM, 1, function(x) quantile(x, c(quants[1], quants[2]), na.rm = TRUE))
 
   xxF <- c(1:(ncol(qntF)), (ncol(qntF)):1)
-  yyF <- c(qntF[1, ], rev(qntF[2, ]))
+  if (qnts.smooth == FALSE) {
+    yyF <- c(qntF[1, ], rev(qntF[2, ]))
+  } else {
+    yyF <- c(supsmu(x = 1:(ncol(qntF)), y = qntF[1, ])$y,
+             rev(supsmu(x = 1:(ncol(qntF)), y = qntF[2, ])$y))
+  }
   polygon(xxF, yyF, col = qnt.pal[1], border = NA)
 
   xxM <- c(1:(ncol(qntM)), (ncol(qntM)):1)
-  yyM <- c(qntM[1, ], rev(qntM[2, ]))
+  if (qnts.smooth == FALSE) {
+    yyM <- c(qntM[1, ], rev(qntM[2, ]))
+  } else {
+    yyM <- c(supsmu(x = 1:(ncol(qntM)), y = qntM[1, ])$y,
+             rev(supsmu(x = 1:(ncol(qntM)), y = qntM[2, ])$y))
+  }
   polygon(xxM, yyM, col = qnt.pal[2], border = NA)
 
 }

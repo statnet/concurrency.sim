@@ -6,7 +6,7 @@
 \usage{
 \method{plot}{conc_microsim}(x, sim.lines = FALSE, sim.alpha = 0.5,
   mean.line = TRUE, mean.smooth = TRUE, mean.lwd = 3, qnts = 0.5,
-  qnt.alpha = 0.3, xlim, ylim, ...)
+  qnt.alpha = 0.3, qnts.smooth = TRUE, xlim, ylim, ...)
 }
 \arguments{
 \item{x}{Object of class \code{conc_microsim}.}
@@ -26,6 +26,8 @@ and 1 = opaque (see \code{transco} in the \code{EpiModel} package).}
 
 \item{qnt.alpha}{Transparency level for quantile band, similiarly specified to
 \code{sim.alpha}.}
+
+\item{qnts.smooth}{If \code{TRUE}, smooth the quantile band.}
 
 \item{xlim}{x-axis scale limits for plot, with default based on model time steps.}
 
