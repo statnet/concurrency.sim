@@ -57,6 +57,8 @@ shinyUI(fluidPage(
              column(3, checkboxInput(inputId = "mean.line", label = "Mean Line",
                                      value = TRUE)),
              column(3, checkboxInput(inputId = "mean.smooth", label = "Smooth Mean",
+                                     value = TRUE)),
+             column(3, checkboxInput(inputId = "qnts.smooth", label = "Smooth Quantile",
                                      value = TRUE))
            ),
            fluidRow(

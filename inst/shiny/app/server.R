@@ -59,7 +59,8 @@ shinyServer(function(input, output, session) {
          mean.smooth = input$mean.smooth,
          mean.lwd = input$mean.lwd,
          qnts = input$qnts,
-         qnt.alpha = input$qnt.alpha)
+         qnt.alpha = input$qnt.alpha,
+         qnts.smooth = input$qnts.smooth)
   })
 
 
