@@ -70,59 +70,35 @@
 #'
 #' @examples
 #' # No concurrency model
-#' no.conc <- conc_microsim(
-#'    s.num.f = 1000,
-#'    i.num.f = 50,
-#'    s.num.m = 1000,
-#'    i.num.m = 50,
-#'    monog.f = TRUE,
-#'    monog.m = TRUE,
-#'    meandeg = 0.8,
-#'    part.duration = 10,
-#'    nsteps = 2000,
-#'    nsims = 10)
+#' no.conc <- conc_microsim(s.num.f = 1000, i.num.f = 50,
+#'                          s.num.m = 1000, i.num.m = 50,
+#'                          monog.f = TRUE, monog.m = TRUE,
+#'                          meandeg = 0.8, part.duration = 10,
+#'                          nsteps = 2000, nsims = 10)
 #'
 #' # Male concurrency only model
-#' male.conc <- conc_microsim(
-#'    s.num.f = 1000,
-#'    i.num.f = 50,
-#'    s.num.m = 1000,
-#'    i.num.m = 50,
-#'    monog.f = TRUE,
-#'    monog.m = FALSE,
-#'    meandeg = 0.8,
-#'    part.duration = 10,
-#'    nsteps = 2000,
-#'    nsims = 10)
+#' male.conc <- conc_microsim(s.num.f = 1000, i.num.f = 50,
+#'                            s.num.m = 1000, i.num.m = 50,
+#'                            monog.f = TRUE, monog.m = FALSE,
+#'                            meandeg = 0.8, part.duration = 10,
+#'                            nsteps = 2000, nsims = 10)
 #'
 #' # Female concurrency only model
-#' feml.conc <- conc_microsim(
-#'    s.num.f = 1000,
-#'    i.num.f = 50,
-#'    s.num.m = 1000,
-#'    i.num.m = 50,
-#'    monog.f = FALSE,
-#'    monog.m = TRUE,
-#'    meandeg = 0.8,
-#'    part.duration = 10,
-#'    nsteps = 2000,
-#'    nsims = 10)
+#' feml.conc <- conc_microsim(s.num.f = 1000, i.num.f = 50,
+#'                            s.num.m = 1000, i.num.m = 50,
+#'                            monog.f = FALSE, monog.m = TRUE,
+#'                            meandeg = 0.8, part.duration = 10,
+#'                            nsteps = 2000, nsims = 10)
 #'
 #' # Both sexes concurrency model
-#' both.conc <- conc_microsim(
-#'    s.num.f = 1000,
-#'    i.num.f = 50,
-#'    s.num.m = 1000,
-#'    i.num.m = 50,
-#'    monog.f = FALSE,
-#'    monog.m = FALSE,
-#'    meandeg = 0.8,
-#'    part.duration = 10,
-#'    nsteps = 2000,
-#'    nsims = 10)
+#' both.conc <- conc_microsim(s.num.f = 1000, i.num.f = 50,
+#'                            s.num.m = 1000, i.num.m = 50,
+#'                            monog.f = FALSE, monog.m = FALSE,
+#'                            meandeg = 0.8, part.duration = 10,
+#'                            nsteps = 2000, nsims = 10)
 #'
 #' # Plot the results
-#' par(mfrow=c(2,2), mar=c(3,3,3,1), mgp=c(2,1,0))
+#' par(mfrow = c(2,2), mar = c(3,3,3,1), mgp = c(2,1,0))
 #' plot(no.conc, qnt.alpha=0.5, main="No Concurrency")
 #' plot(male.conc, qnt.alpha=0.5, main="Male Concurrency")
 #' plot(feml.conc, qnt.alpha=0.5, main="Female Concurrency")

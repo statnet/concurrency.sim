@@ -27,18 +27,10 @@
 #' @method plot conc_microsim
 #' @export
 #'
-plot.conc_microsim <- function(x,
-                               sim.lines = FALSE,
-                               sim.alpha = 0.5,
-                               mean.line = TRUE,
-                               mean.smooth = TRUE,
-                               mean.lwd = 3,
-                               qnts = 0.5,
-                               qnt.alpha = 0.3,
-                               qnts.smooth = TRUE,
-                               xlim,
-                               ylim,
-                               ...) {
+plot.conc_microsim <- function(x, sim.lines = FALSE, sim.alpha = 0.5,
+                               mean.line = TRUE, mean.smooth = TRUE,
+                               mean.lwd = 3, qnts = 0.5, qnt.alpha = 0.3,
+                               qnts.smooth = TRUE, xlim, ylim, ...) {
 
   nsims <- length(x)
   nsteps <- nrow(x[[1]])
