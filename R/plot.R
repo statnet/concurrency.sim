@@ -46,7 +46,7 @@ plot.conc_microsim <- function(x, sim.lines = FALSE, sim.alpha = 0.5,
   }
 
   plot(1, 1, type = "n", xlim = xlim, ylim = ylim, bty = "n",
-       xlab = "Time (months)", ylab = "Infected")
+       xlab = "Time (months)", ylab = "Infected", ...)
 
   if (qnts > 0) {
     draw_qnts(x, qnts, qnt.pal, qnts.smooth)
