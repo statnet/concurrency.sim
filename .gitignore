@@ -4,3 +4,4 @@
 *.Rproj
 
 *.dcf
+.DS_Store
