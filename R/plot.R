@@ -7,7 +7,7 @@
 #' @param x Object of class \code{conc_microsim}.
 #' @param sim.lines If \code{TRUE}, plot individual simulation lines.
 #' @param sim.alpha Transparency level for simulation lines, where 0 = transparent
-#'        and 1 = opaque (see \code{transco} in the \code{EpiModel} package).
+#'        and 1 = opaque (see \code{adjustcolor} function).
 #' @param mean.line If \code{TRUE}, plot the row means of the simulation lines.
 #' @param mean.smooth If \code{TRUE}, smooth the mean line.
 #' @param mean.lwd Line width for mean line.
@@ -35,8 +35,8 @@ plot.conc_microsim <- function(x, sim.lines = FALSE, sim.alpha = 0.5,
   nsims <- length(x)
   nsteps <- nrow(x[[1]])
   pal <- wesanderson::wes_palette("Zissou", 5)[c(5, 1)]
-  sim.pal <- transco(pal, sim.alpha)
-  qnt.pal <- transco(pal, qnt.alpha)
+  sim.pal <- adjustcolor(pal, alpha.f = sim.alpha)
+  qnt.pal <- adjustcolor(pal, alpha.f = qnt.alpha)
 
   if (missing(ylim)) {
     ylim <- c(0, min(1, max(sapply(x, max)) * 1.25))
