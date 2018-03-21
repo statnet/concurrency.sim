@@ -15,3 +15,4 @@ To run the built-in Shiny application, load the package and then run the `concwe
 library(concurrency.sim)
 concweb()
 ```
+<img src="https://github.com/statnet/concurrency.sim/raw/master/inst/ShinySS.png">
