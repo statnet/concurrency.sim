@@ -4,8 +4,8 @@
 #' \tabular{ll}{
 #'    Package: \tab concurrency.sim\cr
 #'    Type: \tab Package\cr
-#'    Version: \tab 0.1\cr
-#'    Date: \tab 2015-05-12\cr
+#'    Version: \tab 0.5\cr
+#'    Date: \tab 2018-03-21\cr
 #'    License: \tab GPL (>= 2)\cr
 #'    LazyLoad: \tab yes\cr
 #' }
@@ -19,6 +19,9 @@
 #' @docType package
 #' @keywords package
 #' @import wesanderson
-#' @importFrom EpiModel transco
+#' @import shiny
+#' @importFrom grDevices adjustcolor
+#' @importFrom graphics legend lines plot polygon
+#' @importFrom stats quantile rbinom supsmu
 #'
 NULL
