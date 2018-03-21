@@ -74,35 +74,35 @@
 #'                          s.num.m = 1000, i.num.m = 50,
 #'                          monog.f = TRUE, monog.m = TRUE,
 #'                          meandeg = 0.8, part.duration = 10,
-#'                          nsteps = 2000, nsims = 10)
+#'                          nsteps = 2000, nsims = 20)
 #'
 #' # Male concurrency only model
 #' male.conc <- conc_microsim(s.num.f = 1000, i.num.f = 50,
 #'                            s.num.m = 1000, i.num.m = 50,
 #'                            monog.f = TRUE, monog.m = FALSE,
 #'                            meandeg = 0.8, part.duration = 10,
-#'                            nsteps = 2000, nsims = 10)
+#'                            nsteps = 2000, nsims = 20)
 #'
 #' # Female concurrency only model
 #' feml.conc <- conc_microsim(s.num.f = 1000, i.num.f = 50,
 #'                            s.num.m = 1000, i.num.m = 50,
 #'                            monog.f = FALSE, monog.m = TRUE,
 #'                            meandeg = 0.8, part.duration = 10,
-#'                            nsteps = 2000, nsims = 10)
+#'                            nsteps = 2000, nsims = 20)
 #'
 #' # Both sexes concurrency model
 #' both.conc <- conc_microsim(s.num.f = 1000, i.num.f = 50,
 #'                            s.num.m = 1000, i.num.m = 50,
 #'                            monog.f = FALSE, monog.m = FALSE,
 #'                            meandeg = 0.8, part.duration = 10,
-#'                            nsteps = 2000, nsims = 10)
+#'                            nsteps = 2000, nsims = 20)
 #'
 #' # Plot the results
 #' par(mfrow = c(2,2), mar = c(3,3,3,1), mgp = c(2,1,0))
-#' plot(no.conc, qnt.alpha=0.5, main="No Concurrency")
-#' plot(male.conc, qnt.alpha=0.5, main="Male Concurrency")
-#' plot(feml.conc, qnt.alpha=0.5, main="Female Concurrency")
-#' plot(both.conc, qnt.alpha=0.5, main="Both Concurrency")
+#' plot(no.conc, qnt.alpha = 0.5, main = "No Concurrency")
+#' plot(male.conc, qnt.alpha = 0.5, main = "Male Concurrency")
+#' plot(feml.conc, qnt.alpha = 0.5, main = "Female Concurrency")
+#' plot(both.conc, qnt.alpha = 0.5, main = "Both Concurrency")
 #'
 conc_microsim <- function(s.num.f,
                           i.num.f,
@@ -126,7 +126,6 @@ conc_microsim <- function(s.num.f,
 
   out <- list()
   for (sim in 1:nsims) {
-    ptm <- proc.time()
 
     # Basic calculations ------------------------------------------------------
 
@@ -348,18 +347,8 @@ conc_microsim <- function(s.num.f,
 
     }
     # Progress tracker
-    stepTime <- (proc.time()[3] - ptm[3])
-    doneTime <- (proc.time()[3] - ptm[3]) * (nsims - sim)
     if (verbose == TRUE) {
-      if (doneTime/60 < 60) {
-        cat("SIM = ", sim, "/", nsims,
-            " | SIM Time = ", round(stepTime/60, 1), " Min",
-            " | SIM Done = ", round(doneTime/60), " Min", "\n", sep = "")
-      } else {
-        cat("SIM = ", sim, "/", nsims,
-            " | SIM Time = ", round(stepTime/60, 1), " Min",
-            " | SIM Done = ", round(doneTime/60/60, 1), " Hrs", "\n", sep = "")
-      }
+      cat("SIM = ", sim, "/", nsims, "\n", sep = "")
     }
 
     prevBoth <- matrix(c(femlPrev, malePrev), ncol = 2)
