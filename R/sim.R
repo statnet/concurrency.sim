@@ -98,7 +98,7 @@
 #'                            nsteps = 2000, nsims = 20)
 #'
 #' # Plot the results
-#' par(mfrow = c(2,2), mar = c(3,3,3,1), mgp = c(2,1,0))
+#' par(mfrow = c(2,2), mar = c(3,3,2,1), mgp = c(2,1,0))
 #' plot(no.conc, qnt.alpha = 0.5, main = "No Concurrency")
 #' plot(male.conc, qnt.alpha = 0.5, main = "Male Concurrency")
 #' plot(feml.conc, qnt.alpha = 0.5, main = "Female Concurrency")
