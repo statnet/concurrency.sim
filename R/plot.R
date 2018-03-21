@@ -34,7 +34,7 @@ plot.conc_microsim <- function(x, sim.lines = FALSE, sim.alpha = 0.5,
 
   nsims <- length(x)
   nsteps <- nrow(x[[1]])
-  pal <- wesanderson::wes_palette("Zissou", 5)[c(5, 1)]
+  pal <- c("#F21A00", "#3B9AB2")
   sim.pal <- adjustcolor(pal, alpha.f = sim.alpha)
   qnt.pal <- adjustcolor(pal, alpha.f = qnt.alpha)
 

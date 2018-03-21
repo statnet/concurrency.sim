@@ -16,7 +16,6 @@ Depends:
     R (>= 3.1.0),
     shiny
 Imports:
-    EpiModel (>= 1.2.0),
-    wesanderson
+    EpiModel (>= 1.2.0)
 LazyData: true
 RoxygenNote: 6.0.1

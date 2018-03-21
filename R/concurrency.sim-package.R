@@ -18,7 +18,6 @@
 #' @name concurrency.sim-package
 #' @docType package
 #' @keywords package
-#' @import wesanderson
 #' @import shiny
 #' @importFrom grDevices adjustcolor
 #' @importFrom graphics legend lines plot polygon
