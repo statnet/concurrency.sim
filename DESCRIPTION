@@ -1,8 +1,8 @@
 Package: concurrency.sim
 Type: Package
 Title: Microsimulation Model for Sexual Partnership Concurrency on HIV-1 Transmission Dynamics
-Version: 0.5
-Date: 2018-03-21
+Version: 0.6
+Date: 2018-04-03
 Authors@R: c( person("Samuel", "Jenness",
     role=c("cre","aut"), email="sjenness@uw.edu"),
     person("Steven", "Goodreau",
