@@ -12,5 +12,5 @@
 #' }
 #'
 concweb <- function() {
-  shiny::runApp(system.file("shiny", "app", package = "concurrency.sim"))
+  shiny::runApp()
 }
